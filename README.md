@@ -19,7 +19,7 @@ noDataView.delegate = self;
 ```
 
 ## <a id="没有数据"></a>没有数据
-![(没有数据)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_1.PNG)
+![(没有数据)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_1.png)
 
 ## <a id="网络连接失败"></a>网络连接失败
-![(网络连接失败)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_2.PNG)
+![(网络连接失败)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_2.png)
