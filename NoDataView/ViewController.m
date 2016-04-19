@@ -19,14 +19,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     //没有数据
-    LLNoDataView *dataView = [[LLNoDataView alloc] initNoDataWithFrame:self.tableView.bounds description:@"没有数据" canTouch:YES];
-    dataView.delegate = self;
-    self.tableView.tableHeaderView = dataView;
-    
-    //没有网络
-//    LLNoDataView *dataView = [[LLNoDataView alloc] initNoInternetWithFrame:self.tableView.bounds description:@"没有数据" canTouch:YES];
+//    LLNoDataView *dataView = [[LLNoDataView alloc] initNoDataWithFrame:self.tableView.bounds description:@"没有数据" canTouch:YES];
 //    dataView.delegate = self;
 //    self.tableView.tableHeaderView = dataView;
+    
+    //没有网络
+    LLNoDataView *dataView = [[LLNoDataView alloc] initNoInternetWithFrame:self.tableView.bounds description:@"网络连接失败" canTouch:YES];
+    dataView.delegate = self;
+    self.tableView.tableHeaderView = dataView;
 }
 
 - (void)didReceiveMemoryWarning {
