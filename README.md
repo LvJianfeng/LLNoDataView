@@ -1,5 +1,7 @@
 # LLNoDataView
-空数据提示通用View
+超简单的空数据提示通用View！！！！！
+
+什么，简单到不行了！！！真的超级简单的使用！！！其实有牛逼的空数据展示那种，应该都知道，但是使用上就是太过繁琐，需要实现很多，所以果断放弃！！！自己弄个超简单的超简单的！
 
 
 ## <a id="支持哪些空数据的展示"></a>支持哪些空数据的展示
@@ -19,7 +21,7 @@ noDataView.delegate = self;
 ```
 
 ## <a id="没有数据"></a>没有数据
-![(没有数据)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1.PNG)
+![(没有数据)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_1.png)
 
 ## <a id="网络连接失败"></a>网络连接失败
-![(网络连接失败)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen2.PNG)
+![(网络连接失败)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_2.png)
