@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //实例化一次
     //没有数据
     LLNoDataView *dataView = [[LLNoDataView alloc] initNoDataWithFrame:self.tableView.bounds description:@"没有数据" canTouch:YES];
     dataView.delegate = self;
