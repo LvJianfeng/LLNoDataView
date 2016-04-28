@@ -19,7 +19,9 @@
 
 #define LLNoDataSrcName(file) [@"LLNoData.bundle" stringByAppendingPathComponent:file]
 #define LLColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @implementation LLNoDataView
+
 - (instancetype)initNoDataWithFrame:(CGRect)frame description:(NSString *)description canTouch:(BOOL)isCanTouch{
     self = [super initWithFrame:frame];
     if (self) {
@@ -34,6 +36,7 @@
         tipLabel.llverticalAlignment = LLVerticalAlignmentTop;
         tipLabel.text = description;
         [self addSubview:tipLabel];
+        self.tipLabel = tipLabel;
         
         if (isCanTouch) {
             UIButton *btnTouchView = [[UIButton alloc] initWithFrame:frame];
@@ -59,6 +62,7 @@
         tipLabel.llverticalAlignment = LLVerticalAlignmentTop;
         tipLabel.text = description;
         [self addSubview:tipLabel];
+        self.tipLabel = tipLabel;
         
         if (isCanTouch) {
             UIButton *btnTouchView = [[UIButton alloc] initWithFrame:frame];
@@ -83,6 +87,7 @@
         tipLabel.llverticalAlignment = LLVerticalAlignmentTop;
         tipLabel.text = description;
         [self addSubview:tipLabel];
+        self.tipLabel = tipLabel;
         
         if (isCanTouch) {
             UIButton *btnTouchView = [[UIButton alloc] initWithFrame:frame];
@@ -108,6 +113,7 @@
         tipLabel.llverticalAlignment = LLVerticalAlignmentTop;
         tipLabel.text = description;
         [self addSubview:tipLabel];
+        self.tipLabel = tipLabel;
         
         if (isCanTouch) {
             UIButton *btnTouchView = [[UIButton alloc] initWithFrame:frame];

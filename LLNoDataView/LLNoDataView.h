@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LLLabel;
 
 typedef enum
 {
@@ -57,6 +58,9 @@ typedef enum
 - (instancetype)initImageNameWithFrame:(CGRect)frame imageName:(NSString *)imageName description:(NSString *)description canTouch:(BOOL)isCanTouch;
 
 @property (assign, nonatomic) id<LLNoDataViewTouchDelegate> delegate;
+
+//提示文本显示Label
+@property (weak, nonatomic)   LLLabel *tipLabel;
 @end
 
 
