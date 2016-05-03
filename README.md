@@ -20,6 +20,9 @@
 noDataView.delegate = self;
 ```
 
+## <a id="可视化重新加载按钮"></a>可视化重新加载按钮
+![(可视化重新加载按钮)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_0.png)
+
 ## <a id="没有数据"></a>没有数据
 ![(没有数据)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_1.png)
 
