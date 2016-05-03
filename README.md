@@ -9,7 +9,7 @@
 * 其实都是可以使用的，返回的只有一个自定义的View
 
 ## <a id="如何使用LLNoDataView"></a>如何使用LLNoDataView
-* cocoapods导入：`pod 'LLNoDataView'`
+<!--* cocoapods导入：`pod 'LLNoDataView'`-->
 * 手动导入：
       * 将`LLNoDataView`文件夹中的所有文件拽入项目中
     * 导入主头文件：`#import "LLNoDataView.h"`
