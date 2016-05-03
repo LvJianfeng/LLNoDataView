@@ -20,17 +20,22 @@
     // Do any additional setup after loading the view, typically from a nib.
     //实例化一次
     //没有数据
-    LLNoDataView *dataView = [[LLNoDataView alloc] initNoDataWithFrame:self.tableView.bounds description:@"没有数据" canTouch:YES];
+    //LLNoDataView *dataView = [[LLNoDataView alloc] initNoDataWithFrame:self.tableView.bounds description:@"没有数据" canTouch:YES];
+    //dataView.delegate = self;
+    //self.tableView.tableHeaderView = dataView;
+    
+    //没有网络
+    //LLNoDataView *dataView = [[LLNoDataView alloc] initNoInternetWithFrame:self.tableView.bounds description:@"网络连接失败" canTouch:YES];
+    //dataView.delegate = self;
+    //self.tableView.tableHeaderView = dataView;
+    
+    //可视重新加载按钮
+    LLNoDataView *dataView = [[LLNoDataView alloc] initReloadBtnWithFrame:self.tableView.bounds LLNoDataViewType:LLNoInternet description:@"" reloadBtnTitle:@"重新加载"];
     dataView.delegate = self;
     self.tableView.tableHeaderView = dataView;
     
     //实例一次，再次修改提示文本信息
     dataView.tipLabel.text = @"没有搜索到\"LLNoDataView\"的数据";
-    
-//    //没有网络
-//    LLNoDataView *dataView = [[LLNoDataView alloc] initNoInternetWithFrame:self.tableView.bounds description:@"网络连接失败" canTouch:YES];
-//    dataView.delegate = self;
-//    self.tableView.tableHeaderView = dataView;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LLNoDataView"
-  s.version      = "0.0.2"
+  s.version      = "1.0.0"
   s.summary      = "LLNoDataView for No Data"
   s.homepage     = "https://github.com/LvJianfeng/LLNoDataView"
   s.license      = "MIT"

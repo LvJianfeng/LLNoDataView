@@ -16,6 +16,12 @@ typedef enum
     LLVerticalAlignmentBottom,
 } LLVerticalAlignment;
 
+typedef enum
+{
+    LLNoInternet = 0, // default
+    LLNoData,
+} LLNoDataViewType;
+
 @protocol LLNoDataViewTouchDelegate <NSObject>
 @optional
 - (void) didTouchLLNoDataView;
@@ -56,6 +62,16 @@ typedef enum
  *  @param canTouch    是否可点击
  */
 - (instancetype)initImageNameWithFrame:(CGRect)frame imageName:(NSString *)imageName description:(NSString *)description canTouch:(BOOL)isCanTouch;
+
+/**
+ *  可视按钮点击重新加载
+ *
+ *  @param imageName        图片名称
+ *  @param description      描述信息
+ *  @param LLNoDataViewType 状态类型
+ *  @param reloadBtnTitle   重新加载按钮文本
+ */
+- (instancetype)initReloadBtnWithFrame:(CGRect)frame LLNoDataViewType:(LLNoDataViewType)type description:(NSString *)description reloadBtnTitle:(NSString *)title;
 
 @property (assign, nonatomic) id<LLNoDataViewTouchDelegate> delegate;
 

@@ -124,11 +124,96 @@
     return self;
 }
 
+- (instancetype)initReloadBtnWithFrame:(CGRect)frame LLNoDataViewType:(LLNoDataViewType)type description:(NSString *)description reloadBtnTitle:(NSString *)title
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-LLIconWidth*0.5, frame.size.height*0.5-LLIconHeight*0.5, LLIconWidth, LLIconHeight)];
+        
+        if (type == LLNoInternet) {
+            imageView.image = [UIImage imageNamed:LLNoDataSrcName(@"no_data_katong_")];
+        }
+        
+        if (type == LLNoData) {
+            imageView.image = [UIImage imageNamed:LLNoDataSrcName(@"network_xinhao_")];
+        }
+        
+        [self addSubview:imageView];
+        
+        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(0, imageView.center.y+LLIconHeight*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH, LLDescriptionHeight)];
+        tipLabel.textColor = LLColorFromRGB(0x999999);
+        tipLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
+        tipLabel.textAlignment = NSTextAlignmentCenter;
+        tipLabel.llverticalAlignment = LLVerticalAlignmentTop;
+        tipLabel.text = description;
+        [self addSubview:tipLabel];
+        self.tipLabel = tipLabel;
+        
+        if (title && title.length>0) {
+            CGSize btnSize = [self sizeWithString:title font:[UIFont systemFontOfSize:14.f] constrainedToWidth:LLSCREEN_WIDTH];
+            CGFloat btnWidth = btnSize.width + 40;
+            UIButton *btnTouchView = [[UIButton alloc] initWithFrame:CGRectMake(LLSCREEN_WIDTH*0.5 - btnWidth*0.5, tipLabel.center.y + LLDescriptionHeight * 0.5, btnWidth, btnSize.height+20)];
+            btnTouchView.layer.borderColor = LLColorFromRGB(0x999999).CGColor;
+            btnTouchView.layer.borderWidth = 0.5;
+            btnTouchView.layer.cornerRadius = (btnSize.height+20) * 0.5;
+            [btnTouchView setTitleColor:LLColorFromRGB(0x999999) forState:UIControlStateNormal];
+            [btnTouchView setTitle:title forState:UIControlStateNormal];
+            [btnTouchView addTarget:self action:@selector(windowTouchAction) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:btnTouchView];
+        }
+    }
+    return self;
+}
+
 //空数据View的点击响应协议
 - (void)windowTouchAction{
     if ([self.delegate respondsToSelector:@selector(didTouchLLNoDataView)]) {
         [self.delegate didTouchLLNoDataView];
     }
+}
+
+#pragma mark - 计算文本
+/**
+ *  @brief 计算文字的大小
+ *
+ *  @param font  字体(默认为系统字体)
+ *  @param width 约束宽度
+ */
+- (CGSize)sizeWithString:(NSString *)string font:(UIFont *)font constrainedToWidth:(CGFloat)width
+{
+    UIFont *textFont = font ? font : [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    
+    CGSize textSize;
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    if ([string respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                     NSParagraphStyleAttributeName: paragraph};
+        textSize = [string boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                      options:(NSStringDrawingUsesLineFragmentOrigin |
+                                               NSStringDrawingTruncatesLastVisibleLine)
+                                   attributes:attributes
+                                      context:nil].size;
+    } else {
+        textSize = [string sizeWithFont:textFont
+                    constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)
+                        lineBreakMode:NSLineBreakByWordWrapping];
+    }
+#else
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                 NSParagraphStyleAttributeName: paragraph};
+    textSize = [string boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                  options:(NSStringDrawingUsesLineFragmentOrigin |
+                                           NSStringDrawingTruncatesLastVisibleLine)
+                               attributes:attributes
+                                  context:nil].size;
+#endif
+    
+    return CGSizeMake(ceil(textSize.width), ceil(textSize.height));
 }
 @end
 
@@ -167,4 +252,5 @@
     CGRect actualRect = [self textRectForBounds:requestedRect limitedToNumberOfLines:self.numberOfLines];
     [super drawTextInRect:actualRect];
 }
+
 @end
