@@ -10,10 +10,13 @@
 
 #define LLSCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 
-#define LLIconWidth LLSCREEN_WIDTH*0.33
-#define LLIconHeight LLSCREEN_WIDTH*0.33
+#define LLImageWithNamed(name) [UIImage imageNamed:name]
 
-#define LLDescriptionFontSize 16.f
+//Remove
+//#define LLIconWidth LLSCREEN_WIDTH*0.33
+//#define LLIconHeight LLSCREEN_WIDTH*0.33
+
+#define LLDescriptionFontSize 14.f
 #define LLDescriptionHeight 80.f
 #define LLDescriptionTopSpace 10.f
 
@@ -25,11 +28,19 @@
 - (instancetype)initNoDataWithFrame:(CGRect)frame description:(NSString *)description canTouch:(BOOL)isCanTouch{
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-LLIconWidth*0.5, frame.size.height*0.5-LLIconHeight*0.5, LLIconWidth, LLIconHeight)];
-        imageView.image = [UIImage imageNamed:LLNoDataSrcName(@"no_data_katong_")];
+        UIImage *iconImage;
+        if (LLNoDataImageName.length>0) {
+            iconImage = LLImageWithNamed(LLNoDataImageName);
+        }else{
+            iconImage = LLImageWithNamed(LLNoDataSrcName(@"no_data_katong_"));
+        }
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-iconImage.size.width*0.5, frame.size.height*0.5-iconImage.size.height, iconImage.size.width, iconImage.size.height)];
+        
+        imageView.image = iconImage;
         [self addSubview:imageView];
         
-        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(0, imageView.center.y+LLIconHeight*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH, LLDescriptionHeight)];
+        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(10, imageView.center.y+iconImage.size.height*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH-20, LLDescriptionHeight)];
         tipLabel.textColor = LLColorFromRGB(0x999999);
         tipLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
         tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -51,11 +62,18 @@
 - (instancetype)initNoInternetWithFrame:(CGRect)frame description:(NSString *)description canTouch:(BOOL)isCanTouch{
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-LLIconWidth*0.5, frame.size.height*0.5-LLIconHeight*0.5, LLIconWidth, LLIconHeight)];
-        imageView.image = [UIImage imageNamed:LLNoDataSrcName(@"network_xinhao_")];
+        UIImage *iconImage;
+        if (LLNoInternetImageName.length>0) {
+            iconImage = LLImageWithNamed(LLNoInternetImageName);
+        }else{
+            iconImage = LLImageWithNamed(LLNoDataSrcName(@"network_xinhao_"));
+        }
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-iconImage.size.width*0.5, frame.size.height*0.5-iconImage.size.height, iconImage.size.width, iconImage.size.height)];
+        imageView.image = iconImage;
         [self addSubview:imageView];
         
-        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(0, imageView.center.y+LLIconHeight*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH, LLDescriptionHeight)];
+        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(10, imageView.center.y+iconImage.size.height*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH-20, LLDescriptionHeight)];
         tipLabel.textColor = LLColorFromRGB(0x999999);
         tipLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
         tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -76,11 +94,11 @@
 - (instancetype)initImageWithFrame:(CGRect)frame image:(UIImage *)image description:(NSString *)description canTouch:(BOOL)isCanTouch{
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-LLIconWidth*0.5, frame.size.height*0.5-LLIconHeight*0.5, LLIconWidth, LLIconHeight)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-image.size.width*0.5, frame.size.height*0.5-image.size.height, image.size.width, image.size.height)];
         imageView.image = image;
         [self addSubview:imageView];
         
-        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(0, imageView.center.y+LLIconHeight*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH, LLDescriptionHeight)];
+        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(10, imageView.center.y+image.size.height*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH-20, LLDescriptionHeight)];
         tipLabel.textColor = LLColorFromRGB(0x999999);
         tipLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
         tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -102,11 +120,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-LLIconWidth*0.5, frame.size.height*0.5-LLIconHeight*0.5, LLIconWidth, LLIconHeight)];
-        imageView.image = [UIImage imageNamed:imageName];
+        UIImage *iconImage = LLImageWithNamed(imageName);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-iconImage.size.width*0.5, frame.size.height*0.5-iconImage.size.height, iconImage.size.width, iconImage.size.height)];
+        imageView.image = iconImage;
         [self addSubview:imageView];
         
-        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(0, imageView.center.y+LLIconHeight*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH, LLDescriptionHeight)];
+        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(10, imageView.center.y+iconImage.size.height*0.5+LLDescriptionTopSpace-20, LLSCREEN_WIDTH, LLDescriptionHeight)];
         tipLabel.textColor = LLColorFromRGB(0x999999);
         tipLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
         tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -128,19 +147,24 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-LLIconWidth*0.5, frame.size.height*0.5-LLIconHeight*0.5, LLIconWidth, LLIconHeight)];
-        
+        UIImage *iconImage;
         if (type == LLNoInternet) {
-            imageView.image = [UIImage imageNamed:LLNoDataSrcName(@"no_data_katong_")];
+            iconImage = LLImageWithNamed(LLNoInternetImageName.length>0?LLNoInternetImageName:LLNoDataSrcName(@"no_data_katong_"));
         }
         
         if (type == LLNoData) {
-            imageView.image = [UIImage imageNamed:LLNoDataSrcName(@"network_xinhao_")];
+            iconImage = LLImageWithNamed(LLNoDataImageName.length>0?LLNoDataImageName:LLNoDataSrcName(@"network_xinhao_"));
         }
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width*0.5-iconImage.size.width*0.5, frame.size.height*0.5-iconImage.size.height, iconImage.size.width, iconImage.size.height)];
+        imageView.image = iconImage;
+        
         
         [self addSubview:imageView];
         
-        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(0, imageView.center.y+LLIconHeight*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH, LLDescriptionHeight)];
+        
+        CGSize tipLabelSize = [self sizeWithString:description font:[UIFont systemFontOfSize:LLDescriptionFontSize] constrainedToWidth:LLSCREEN_WIDTH-20];
+        LLLabel *tipLabel = [[LLLabel alloc] initWithFrame:CGRectMake(10, imageView.center.y+iconImage.size.height*0.5+LLDescriptionTopSpace, LLSCREEN_WIDTH-20, tipLabelSize.height)];
         tipLabel.textColor = LLColorFromRGB(0x999999);
         tipLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
         tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -150,7 +174,7 @@
         self.tipLabel = tipLabel;
         
         if (title && title.length>0) {
-            CGSize btnSize = [self sizeWithString:title font:[UIFont systemFontOfSize:14.f] constrainedToWidth:LLSCREEN_WIDTH];
+            CGSize btnSize = [self sizeWithString:title font:[UIFont systemFontOfSize:LLDescriptionFontSize] constrainedToWidth:LLSCREEN_WIDTH];
             CGFloat btnWidth = btnSize.width + 40;
             UIButton *btnTouchView = [[UIButton alloc] initWithFrame:CGRectMake(LLSCREEN_WIDTH*0.5 - btnWidth*0.5, tipLabel.center.y + LLDescriptionHeight * 0.5, btnWidth, btnSize.height+20)];
             btnTouchView.layer.borderColor = LLColorFromRGB(0x999999).CGColor;
