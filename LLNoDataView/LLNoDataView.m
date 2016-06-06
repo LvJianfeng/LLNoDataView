@@ -175,11 +175,12 @@
         
         if (title && title.length>0) {
             CGSize btnSize = [self sizeWithString:title font:[UIFont systemFontOfSize:LLDescriptionFontSize] constrainedToWidth:LLSCREEN_WIDTH];
-            CGFloat btnWidth = btnSize.width + 40;
+            CGFloat btnWidth = btnSize.width + 30;
             UIButton *btnTouchView = [[UIButton alloc] initWithFrame:CGRectMake(LLSCREEN_WIDTH*0.5 - btnWidth*0.5, tipLabel.center.y + LLDescriptionHeight * 0.5, btnWidth, btnSize.height+20)];
             btnTouchView.layer.borderColor = LLColorFromRGB(0x999999).CGColor;
             btnTouchView.layer.borderWidth = 0.5;
             btnTouchView.layer.cornerRadius = (btnSize.height+20) * 0.5;
+            btnTouchView.titleLabel.font = [UIFont systemFontOfSize:LLDescriptionFontSize];
             [btnTouchView setTitleColor:LLColorFromRGB(0x999999) forState:UIControlStateNormal];
             [btnTouchView setTitle:title forState:UIControlStateNormal];
             [btnTouchView addTarget:self action:@selector(windowTouchAction) forControlEvents:UIControlEventTouchUpInside];
