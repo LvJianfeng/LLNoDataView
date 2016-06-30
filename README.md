@@ -20,6 +20,25 @@
 noDataView.delegate = self;
 ```
 
+##1.0.2 更快实现默认图配置，自适应更强大
+```objc
+#pragma mark 图片配置
+/**
+ *  没有数据：默认图（no_data_katong_）
+ */
+#define LLNoDataImageName @""
+
+/**
+ *  没有网络：默认图（network_xinhao_）
+ */
+#define LLNoInternetImageName @""
+
+/**
+ *  其他状态
+ */
+#define LLOtherStatusImageName @""
+```
+
 ## <a id="可视化重新加载按钮"></a>可视化重新加载按钮
 ![(可视化重新加载按钮)](https://github.com/LvJianfeng/LLNoDataView/blob/master/Screen1_0.png)
 
