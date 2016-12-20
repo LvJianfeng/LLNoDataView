@@ -24,7 +24,7 @@
 noDataView.delegate = self;
 ```
 
-## Swift版本使用
+## Swift版本使用，详细见demo或LLNoDataView.swift
 ### 闭包回调
 ```objc
 reloadHandler: LLReloadAction? = nil
