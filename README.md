@@ -3,6 +3,7 @@
 
 什么，简单到不行了！！！真的超级简单的使用！！！其实有牛逼的空数据展示那种，应该都知道，但是使用上就是太过繁琐，需要实现很多，所以果断放弃！！！自己弄个超简单的超简单的！
 
+### 喜欢还可以star一下[Swift轮播](https://github.com/LvJianfeng/LLCycleScrollView)，说不定有用呢，😄
 
 ## <a id="支持哪些空数据的展示"></a>支持哪些空数据的展示
 * `UIScrollView`、`UITableView`、`UICollectionView`、`UIWebView`
@@ -13,14 +14,30 @@
 * 手动导入：
       * 将`LLNoDataView`文件夹中的所有文件拽入项目中
     * 导入主头文件：`#import "LLNoDataView.h"`
-
+* swift版本，手动导入：
+      * 将`LLNoDataView`文件夹中的所有文件拽入项目中
+    * 如果需要使用到默认图，需要将assets里的两个文件复制到你的工程
+    
 ## <a id="允许点击的时候，设置协议回调"></a>允许点击的时候，设置协议回调
 ```objc
 //请下载工程查看Demo使用
 noDataView.delegate = self;
 ```
 
-## (最近修改) 0.0.2 更快实现默认图配置，自适应更强大
+## Swift版本使用
+### 闭包回调
+```objc
+reloadHandler: LLReloadAction? = nil
+```
+### 其他属性控制
+```objc
+backgroundColor: UIColor? = UIColor.white
+status: String? = "网络连接异常"
+reloadText: String? = "重新加载"
+showReload: Bool = false
+```
+
+## (最近修改) OC修改 更快实现默认图配置，自适应更强大
 ```objc
 #pragma mark 图片配置
 /**
