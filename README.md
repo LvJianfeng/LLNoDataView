@@ -37,7 +37,7 @@ reloadText: String? = "重新加载"
 showReload: Bool = false
 ```
 
-## (最近修改) OC修改 更快实现默认图配置，自适应更强大
+## OC修改 更快实现默认图配置，自适应更强大
 ```objc
 #pragma mark 图片配置
 /**
