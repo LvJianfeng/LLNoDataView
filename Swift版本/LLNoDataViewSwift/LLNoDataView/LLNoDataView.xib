@@ -25,12 +25,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3a9-X8-Pwa">
-                    <rect key="frame" x="177.5" y="247" width="54" height="30"/>
+                    <rect key="frame" x="174" y="257" width="61" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="KEV-OO-DQw"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="重新加载">
+                    <state key="normal" title=" 重新加载 ">
                         <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
                     </state>
                     <connections>
@@ -43,7 +43,7 @@
                 <constraint firstItem="3a9-X8-Pwa" firstAttribute="centerX" secondItem="96X-Za-ZVy" secondAttribute="centerX" id="7Ag-Eo-1Vb"/>
                 <constraint firstAttribute="trailing" secondItem="96X-Za-ZVy" secondAttribute="trailing" constant="30" id="Bt8-iP-8nm"/>
                 <constraint firstItem="jOb-ra-mS1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-40" id="IHF-GC-39T"/>
-                <constraint firstItem="3a9-X8-Pwa" firstAttribute="top" secondItem="96X-Za-ZVy" secondAttribute="bottom" constant="8" id="Map-Fg-tyE"/>
+                <constraint firstItem="3a9-X8-Pwa" firstAttribute="top" secondItem="96X-Za-ZVy" secondAttribute="bottom" constant="18" id="Map-Fg-tyE"/>
                 <constraint firstItem="96X-Za-ZVy" firstAttribute="top" secondItem="jOb-ra-mS1" secondAttribute="bottom" constant="8" id="XoE-2W-Ale"/>
                 <constraint firstItem="96X-Za-ZVy" firstAttribute="centerX" secondItem="jOb-ra-mS1" secondAttribute="centerX" id="hGO-PL-xfR"/>
                 <constraint firstItem="jOb-ra-mS1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rjU-mD-zeD"/>

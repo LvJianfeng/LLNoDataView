@@ -23,6 +23,12 @@ class LLNoDataView: UIView {
     // LLReloadAction
     var reloadAction: LLReloadAction?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.ll_reloadButton.layer.borderWidth = 1.0 / UIScreen.main.scale
+        self.ll_reloadButton.layer.borderColor = UIColor.init(red: 153.0/255.0, green: 153.0/255.0, blue: 153.0/255.0, alpha: 1.0).cgColor
+    }
+    
     // 初始化 空数据
     class func ll_NoData(frame: CGRect, backgroundColor: UIColor? = UIColor.white, status: String? = "当前没有数据",reloadText: String? = "重新加载", showReload: Bool = false, reloadHandler: LLReloadAction? = nil) -> LLNoDataView {
         let ll_nodataView: LLNoDataView = Bundle.main.loadNibNamed("LLNoDataView", owner: nil, options: nil)?.first as! LLNoDataView
@@ -31,7 +37,8 @@ class LLNoDataView: UIView {
         ll_nodataView.ll_statusImageView.image = UIImage(named: "no_data_")
         ll_nodataView.ll_statusContentLabel.text = status
         ll_nodataView.ll_reloadButton.isHidden = showReload
-        ll_nodataView.ll_reloadButton.setTitle(reloadText, for: .normal)
+        ll_nodataView.ll_reloadButton.setTitle("  \(reloadText!)  ", for: .normal)
+        ll_nodataView.ll_reloadButton.layer.cornerRadius = ll_nodataView.ll_reloadButton.frame.size.height * 0.5
         if let reload = reloadHandler {
             ll_nodataView.reloadAction = reload
         }
@@ -46,7 +53,8 @@ class LLNoDataView: UIView {
         ll_nodataView.ll_statusImageView.image = UIImage(named: "network_xinhao_")
         ll_nodataView.ll_statusContentLabel.text = status
         ll_nodataView.ll_reloadButton.isHidden = showReload
-        ll_nodataView.ll_reloadButton.setTitle(reloadText, for: .normal)
+        ll_nodataView.ll_reloadButton.setTitle("  \(reloadText!)  ", for: .normal)
+        ll_nodataView.ll_reloadButton.layer.cornerRadius = ll_nodataView.ll_reloadButton.frame.size.height * 0.5
         if let reload = reloadHandler {
             ll_nodataView.reloadAction = reload
         }
@@ -61,7 +69,8 @@ class LLNoDataView: UIView {
         ll_nodataView.ll_statusImageView.image = icon
         ll_nodataView.ll_statusContentLabel.text = status
         ll_nodataView.ll_reloadButton.isHidden = showReload
-        ll_nodataView.ll_reloadButton.setTitle(reloadText, for: .normal)
+        ll_nodataView.ll_reloadButton.setTitle("  \(reloadText!)  ", for: .normal)
+        ll_nodataView.ll_reloadButton.layer.cornerRadius = ll_nodataView.ll_reloadButton.frame.size.height * 0.5
         if let reload = reloadHandler {
             ll_nodataView.reloadAction = reload
         }
