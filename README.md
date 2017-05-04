@@ -3,7 +3,9 @@
 
 什么，简单到不行了！！！真的超级简单的使用！！！其实有牛逼的空数据展示那种，应该都知道，但是使用上就是太过繁琐，需要实现很多，所以果断放弃！！！自己弄个超简单的超简单的！
 
-### 喜欢还可以star一下[Swift轮播](https://github.com/LvJianfeng/LLCycleScrollView)，说不定有用呢，😄
+### 喜欢还可以star下面的，说不定有用呢😄😄😄
+[Swift无限轮播](https://github.com/LvJianfeng/LLCycleScrollView)
+[Swift图片浏览库](https://github.com/LvJianfeng/LLPhotoBrowser)
 
 ## <a id="支持哪些空数据的展示"></a>支持哪些空数据的展示
 * `UIScrollView`、`UITableView`、`UICollectionView`、`UIWebView`
